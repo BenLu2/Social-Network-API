@@ -3,13 +3,33 @@ const { Schema, model } = require('mongoose');
 // Schema to create User model
 const userSchema = new Schema(
   {
-    first: String,
-    last: String,
-    age: Number,
-    videos: [
+
+    username: [
       {
-        type: Schema.Types.ObjectId,
-        ref: 'Video',
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+      },
+    ],
+    email: [
+      {
+        type: String,
+        required: true,
+        unique: true,
+        match: [/.+@.+\..+/,],
+      },
+    ],
+    thoughts: [
+      {
+        type: Schema.Types.ObjectID,
+        ref: 'Thought',
+      },
+    ],
+    friends: [
+      {
+        type: Schema.Types.ObjectID,
+        ref: 'User',
       },
     ],
   },
