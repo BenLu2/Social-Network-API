@@ -1,27 +1,24 @@
 const { Schema, model } = require('mongoose');
-const Response = require('./Response');
+const ReactionSchema = require('./Reaction');
 
 // Schema to create Post model
-const videoSchema = new Schema(
+const thoughtSchema = new Schema(
   {
-    published: {
-      type: Boolean,
-      default: false,
+    thoughtText: {
+      type: String,
+      required: true,
+      minLength: 1,
+      maxLength: 280,
     },
     createdAt: {
       type: Date,
       default: Date.now,
     },
-    advertiserFriendly: {
-      type: Boolean,
-      default: true,
-    },
-    description: {
+    username: {
       type: String,
-      minLength: 15,
-      maxLength: 500,
+      required: true,
     },
-    responses: [Response],
+    reaction: [ReactionSchema],
   },
   {
     toJSON: {
@@ -40,6 +37,6 @@ videoSchema
   });
 
 // Initialize our Video model
-const Video = model('video', videoSchema);
+const Thought = model('thought', thoughtSchema);
 
-module.exports = Video;
+module.exports = Thought;
