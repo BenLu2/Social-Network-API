@@ -38,7 +38,7 @@ module.exports = {
       });
   },
   updateThought(req, res) {
-    Video.findOneAndUpdate(
+    Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       { $set: req.body },
       { runValidators: true, new: true }

@@ -89,21 +89,21 @@ const getRandomName = () =>
   `${getRandomArrItem(names)} ${getRandomArrItem(names)}`;
 
 // Function to generate random videos that we can add to the database. Includes video responses.
-const getRandomVideos = (int) => {
+const getRandomThoughts = (int) => {
   let results = [];
   for (let i = 0; i < int; i++) {
     results.push({
       published: Math.random() < 0.5,
       description: getRandomArrItem(descriptionsBodies),
       advertiserFriendly: Math.random() < 0.5,
-      responses: [...getVideoResponses(3)],
+      responses: [...getThoughtResponses(3)],
     });
   }
   return results;
 };
 
 // Create the responses that will be added to each video
-const getVideoResponses = (int) => {
+const getThoughtResponses = (int) => {
   if (int === 1) {
     return getRandomArrItem(possibleResponses);
   }
@@ -118,4 +118,4 @@ const getVideoResponses = (int) => {
 };
 
 // Export the functions for use in seed.js
-module.exports = { getRandomName, getRandomVideos, getRandomVideos };
+module.exports = { getRandomName, getRandomThoughts, getRandomThoughts };
