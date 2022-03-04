@@ -33,7 +33,7 @@ thoughtSchema
   .virtual('getReactions')
   // Getter
   .get(function () {
-    return this.responses.length;
+    return this.reaction.length;
   });
 
 // Initialize our Thought model

@@ -22,6 +22,10 @@ const names = [
   'Abdulbasir',
   'Abdulkadir',
   'Abdulkarem',
+  'Smith',
+  'Jones',
+  'Coollastname',
+  'enter_name_here',
   'Ze',
   'Zechariah',
   'Zeek',
@@ -52,10 +56,32 @@ const names = [
   'Zubair',
   'Zubayr',
   'Zuriel',
-  ``,
+  'Xander',
+  'Jared',
+  'Courtney',
+  'Gillian',
+  'Clark',
+  'Jared',
+  'Grace',
+  'Kelsey',
+  'Tamar',
+  'Alex',
+  'Mark',
+  'Tamar',
+  'Farish',
+  'Sarah',
+  'Nathaniel',
+  'Parker',
 ];
 
-const descriptionsBodies = [
+const thoughts = [
+  'I disagree!',
+  'I tried your algorithm, here were the results',
+  'This was awesome',
+  'Thank you for the great content',
+  'Please check out my video response',
+  'Like and subscribe to my channel please',
+  'Reply: The side effects of in app purchases on digital marketplaces',
   'How to disagree with someone',
   'iPhone review',
   'how-to video',
@@ -69,17 +95,6 @@ const descriptionsBodies = [
   'Submission for startup pitch',
 ];
 
-const possibleResponses = [
-  'I disagree!',
-  'I tried your algorithm, here were the results',
-  'This was awesome',
-  'Thank you for the great content',
-  'Please check out my video response',
-  'Like and subscribe to my channel please',
-  'Reply: The side effects of in app purchases on digital marketplaces',
-];
-
-const users = [];
 
 // Get a random item given an array
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
@@ -88,34 +103,17 @@ const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const getRandomName = () =>
   `${getRandomArrItem(names)} ${getRandomArrItem(names)}`;
 
-// Function to generate random videos that we can add to the database. Includes video responses.
+// Function to generate random thought that we can add to the database. Includes thought responses.
 const getRandomThoughts = (int) => {
   let results = [];
   for (let i = 0; i < int; i++) {
     results.push({
-      published: Math.random() < 0.5,
-      description: getRandomArrItem(descriptionsBodies),
-      advertiserFriendly: Math.random() < 0.5,
-      responses: [...getThoughtResponses(3)],
+      thoughtName: getRandomArrItem(thoughts),
     });
   }
   return results;
 };
 
-// Create the responses that will be added to each video
-const getThoughtResponses = (int) => {
-  if (int === 1) {
-    return getRandomArrItem(possibleResponses);
-  }
-  let results = [];
-  for (let i = 0; i < int; i++) {
-    results.push({
-      responseBody: getRandomArrItem(possibleResponses),
-      username: getRandomName(),
-    });
-  }
-  return results;
-};
 
 // Export the functions for use in seed.js
-module.exports = { getRandomName, getRandomThoughts, getRandomThoughts };
+module.exports = {getRandomArrItem, getRandomName, getRandomThoughts };
