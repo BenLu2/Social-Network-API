@@ -1,3 +1,9 @@
+const user = [
+  username = 'yudong lv',
+  email= 'yudong@email.com'
+]
+
+
 const names = [
   'Aaran',
   'Aaren',
