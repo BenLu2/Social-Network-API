@@ -38,7 +38,7 @@ module.exports = {
         res.status(500).json(err);
       });
   },
-
+// update a thought
   updateThought(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtText },
@@ -55,6 +55,8 @@ module.exports = {
         res.status(500).json(err);
       });
   },
+
+  // delete a thought
   deleteThought(req, res) {
     Thought.findOneAndRemove({ _id: req.params.id })
       .then((thought) =>
