@@ -6,6 +6,7 @@ connection.on('error', (err) => err);
 
 connection.once('open', async () => {
   console.log('connected');
+
   await Thought.deleteMany({});
   await User.deleteMany({});
 
@@ -13,23 +14,19 @@ connection.once('open', async () => {
   const thoughts = [];
 
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 4; i++) {
     let user =
     {
       username: getRandomName(),
-      email: `${username}@gmail.com`
+      email: `email@${i}email.com`
     }
-    users.push({
-      first,
-      last,
-      age: Math.floor(Math.random() * (99 - 18 + 1) + 18),
-    });
+    users.push(user);
   }
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 4; i++) {
     let thought =
     {
-      thoughtText: getRandomThought(),
+      thoughtText: getRandomThoughts(),
       username: users[i].username,
     }
     thoughts.push(thought)

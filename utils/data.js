@@ -1,8 +1,4 @@
-const user = [
-  username = 'yudong lv',
-  email= 'yudong@email.com'
-]
-
+const { Reaction } = require("../models");
 
 const names = [
   'Aaran',
@@ -101,6 +97,26 @@ const thoughts = [
   'Submission for startup pitch',
 ];
 
+const reactions = [
+  'Wow!',
+  'Nice!',
+  'Cool',
+  'Yikes',
+  'Good',
+  'Not so good',
+  'Well',
+  'this is nice',
+  'better',
+  'worse',
+  'ops',
+  'Perfect',
+  'Beautiful',
+  'Super',
+  'Amazing!',
+  'Spicy',
+  'On fire'
+];
+
 
 // Get a random item given an array
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
@@ -110,16 +126,12 @@ const getRandomName = () =>
   `${getRandomArrItem(names)} ${getRandomArrItem(names)}`;
 
 // Function to generate random thought that we can add to the database. Includes thought responses.
-const getRandomThoughts = (int) => {
-  let results = [];
-  for (let i = 0; i < int; i++) {
-    results.push({
-      thoughtName: getRandomArrItem(thoughts),
-    });
-  }
-  return results;
-};
+const getRandomThoughts = () => 
+
+  `${getRandomArrItem(thoughts)} is ${getRandomArrItem(reactions)}`;
+
+
 
 
 // Export the functions for use in seed.js
-module.exports = {getRandomArrItem, getRandomName, getRandomThoughts };
+module.exports = {getRandomArrItem, getRandomName, getRandomThoughts  };

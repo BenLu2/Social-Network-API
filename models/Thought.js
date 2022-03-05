@@ -1,12 +1,13 @@
 const { Schema, model } = require('mongoose');
-const ReactionSchema = require('./Reaction');
+const reactionSchema = require('./Reaction');
 
 // Schema to create Post model
 const thoughtSchema = new Schema(
   {
     thoughtText: {
       type: String,
-      required: true,
+      required: 'please enter your thoughts',
+      unique: false,
       minLength: 1,
       maxLength: 280,
     },
@@ -18,7 +19,7 @@ const thoughtSchema = new Schema(
       type: String,
       required: true,
     },
-    reaction: [ReactionSchema],
+    reaction: [reactionSchema],
   },
   {
     toJSON: {
