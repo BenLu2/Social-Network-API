@@ -14,7 +14,9 @@ Insomia or Postman is recommanded
 
 You can via clone the Github link: https://github.com/BenLu2/Social-Network-API.git
 
-and run `npm install`, `node server.js` and if you want, you can use the `npm run seed` to automatically generate seed data
+and run `npm install`, `node server.js` to start the server
+
+and if you want, you can use the `npm run seed` to automatically generate seed data
 
 
 ## Demo
